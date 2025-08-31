@@ -1,8 +1,8 @@
 class Romlm < Formula
   desc "ROMs library management tool"
   homepage "https://github.com/ManeFunction/romlm"
-  url "https://github.com/ManeFunction/romlm/releases/download/v1.0.2/romlm-1.0.2.tar.gz"
-  sha256 "ea03f8cc030fb626f6dd58f6f3fad779028b8e0667192251ce453da6850e2b04"
+  url "https://github.com/ManeFunction/romlm/releases/download/v1.0.3/romlm-1.0.3.tar.gz"
+  sha256 "614e0b117edca8cf5840966a91ccb1e8874b51ecda98698c66856171113ef2fb"
   license "MIT"
 
   depends_on "python@3.12"
