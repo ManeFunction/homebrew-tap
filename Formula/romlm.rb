@@ -7,8 +7,8 @@ class Romlm < Formula
   sha256 "80607b5442918067b3e17aa735bd1effc7887519dd6cf0915858e26ca8ddea3d"
   license "MIT"
 
-  depends_on "sevenzip"
   depends_on "python@3.12"
+  depends_on "sevenzip"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl"
