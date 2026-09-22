@@ -3,8 +3,8 @@ class Flipshot < Formula
 
   desc "Grab a screenshot from a Flipper Zero over USB serial"
   homepage "https://github.com/ManeFunction/flipshot"
-  url "https://files.pythonhosted.org/packages/84/3e/b812631b195d95b2f8e0e0cf8149726a5a60ec43a43100eabc1db32906c9/flipshot-1.0.0.tar.gz"
-  sha256 "ff2e0844a82dec17cf7b8cd937fce5b1ac80fad11d286f5083f32654d840eb7e"
+  url "https://files.pythonhosted.org/packages/d4/ac/4a5f1e01680c4f39f3abf8b948f4633df27ab217be41003cba44dfe99eba/flipshot-1.0.1.tar.gz"
+  sha256 "78cf9d9365cec6d77bb895b98b1da1beda1de3d6586bcf2d08278a35fe2bee48"
   license "MIT"
 
   depends_on "python@3.12"
