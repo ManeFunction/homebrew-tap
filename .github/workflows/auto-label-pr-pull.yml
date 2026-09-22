@@ -1,0 +1,49 @@
+# Auto-applies the "pr-pull" label to formula-bump PRs once brew test-bot
+# passes, so publish.yml (brew pr-pull) picks them up and finalizes them
+# with bottles attached -- instead of a plain merge that would leave the
+# CI-built bottles unused.
+#
+# The bump-* branch check is what tells a bump PR apart from a PR you open
+# by hand -- the release automation's PAT is your own account, so
+# github.actor/PR author alone can't distinguish "bot bump" from "me
+# manually".
+
+name: Auto-label formula bump PRs for publishing
+
+on:
+  workflow_run:
+    workflows: ["brew test-bot"]
+    types: [completed]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  label:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure the pr-pull label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create pr-pull \
+            --repo "${{ github.repository }}" \
+            --description "Triggers brew pr-pull to publish this formula bump with bottles" \
+            --color "0E8A16" 2>/dev/null || true
+
+      - name: Label eligible bump PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBERS: ${{ toJson(github.event.workflow_run.pull_requests.*.number) }}
+        run: |
+          for pr in $(echo "$PR_NUMBERS" | jq -r '.[]'); do
+            author=$(gh pr view "$pr" --repo "${{ github.repository }}" --json author -q .author.login)
+            branch=$(gh pr view "$pr" --repo "${{ github.repository }}" --json headRefName -q .headRefName)
+            if [ "$author" = "ManeFunction" ] && [[ "$branch" == bump-* ]]; then
+              echo "Labeling PR #$pr ($branch) for pr-pull"
+              gh pr edit "$pr" --repo "${{ github.repository }}" --add-label pr-pull
+            fi
+          done
