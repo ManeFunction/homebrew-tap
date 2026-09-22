@@ -16,6 +16,7 @@ brew "<formula>"
 ## Available Formulae
 
 - [romlm](https://github.com/ManeFunction/romlm) - Powerful ROMs manager for your retro-games library.
+- [flipshot](https://github.com/ManeFunction/flipshot) - Over USB native size screenshotter for Flipper Zero.
 
 ## Documentation
 
