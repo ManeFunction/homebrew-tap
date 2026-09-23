@@ -7,6 +7,13 @@
 # by hand -- the release automation's PAT is your own account, so
 # github.actor/PR author alone can't distinguish "bot bump" from "me
 # manually".
+#
+# IMPORTANT: the label-adding step must use a real PAT (PR_LABEL_TOKEN), not
+# the ambient GITHUB_TOKEN. GitHub deliberately does not let actions taken
+# with GITHUB_TOKEN trigger other workflows (anti-recursion protection), so
+# labeling with GITHUB_TOKEN would silently never fire publish.yml's
+# `pull_request_target: types: [labeled]` trigger -- the label would get
+# applied but brew pr-pull would never actually run.
 
 name: Auto-label formula bump PRs for publishing
 
@@ -36,7 +43,7 @@ jobs:
 
       - name: Label eligible bump PRs
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PR_LABEL_TOKEN }}
           PR_NUMBERS: ${{ toJson(github.event.workflow_run.pull_requests.*.number) }}
         run: |
           for pr in $(echo "$PR_NUMBERS" | jq -r '.[]'); do
