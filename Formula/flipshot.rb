@@ -7,6 +7,12 @@ class Flipshot < Formula
   sha256 "ff4eb307fbc4131fb1a91167e29fc02ac3fcbb8b9d7664e37faee012e6ad388c"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/flipshot-1.2.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "876c49c7595454b76cc512b9bf49e92a62f09c77af4e701c274c0e69d21e9ece"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc56d1f0f36e44c190eafd131b38431af1b3150d7a932aefb0363f9ef4536be7"
+  end
+
   depends_on "python@3.12"
 
   resource "pyserial" do
