@@ -28,7 +28,11 @@ jobs:
 
       - run: brew test-bot --only-setup
 
+      # Style/audit/readall are OS-independent (readall already checks every OS and arch),
+      # so run them once. On the Intel runner this step installs shellcheck, which pulls
+      # in dependencies that can lack bottles there and then fail to build from source.
       - run: brew test-bot --only-tap-syntax
+        if: matrix.os == 'ubuntu-24.04'
 
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
