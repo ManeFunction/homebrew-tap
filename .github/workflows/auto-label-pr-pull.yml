@@ -8,6 +8,15 @@
 # github.actor/PR author alone can't distinguish "bot bump" from "me
 # manually".
 #
+# Fast-forward guard: brew pr-pull cherry-picks the PR's commit onto main. That
+# only keeps the commit's hash (so GitHub shows the PR as "Merged" instead of
+# "Closed") when main hasn't moved since the PR branch was created. If main
+# has moved, this workflow rebases the PR branch onto main instead of labeling
+# it; the rebase push re-runs brew test-bot (new head SHA, new bottle
+# artifacts), and that run finds the PR up to date and labels it. A rebase
+# can't be skipped by relabeling: pr-pull looks up the bottle artifacts by the
+# PR's head SHA, so the tests must run on the final head.
+#
 # IMPORTANT: the label-adding step must use a real PAT (PR_LABEL_TOKEN), not
 # the ambient GITHUB_TOKEN. GitHub deliberately does not let actions taken
 # with GITHUB_TOKEN trigger other workflows (anti-recursion protection), so
@@ -41,16 +50,36 @@ jobs:
             --description "Triggers brew pr-pull to publish this formula bump with bottles" \
             --color "0E8A16" 2>/dev/null || true
 
-      - name: Label eligible bump PRs
+      - name: Label eligible bump PRs (rebasing them first if main moved)
         env:
           GH_TOKEN: ${{ secrets.PR_LABEL_TOKEN }}
           PR_NUMBERS: ${{ toJson(github.event.workflow_run.pull_requests.*.number) }}
+          TESTED_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
+          repo="${{ github.repository }}"
           for pr in $(echo "$PR_NUMBERS" | jq -r '.[]'); do
-            author=$(gh pr view "$pr" --repo "${{ github.repository }}" --json author -q .author.login)
-            branch=$(gh pr view "$pr" --repo "${{ github.repository }}" --json headRefName -q .headRefName)
-            if [ "$author" = "ManeFunction" ] && [[ "$branch" == bump-* ]]; then
-              echo "Labeling PR #$pr ($branch) for pr-pull"
-              gh pr edit "$pr" --repo "${{ github.repository }}" --add-label pr-pull
+            author=$(gh pr view "$pr" --repo "$repo" --json author -q .author.login)
+            branch=$(gh pr view "$pr" --repo "$repo" --json headRefName -q .headRefName)
+            if [ "$author" != "ManeFunction" ] || [[ "$branch" != bump-* ]]; then
+              continue
             fi
+
+            head_sha=$(gh pr view "$pr" --repo "$repo" --json headRefOid -q .headRefOid)
+            if [ "$head_sha" != "$TESTED_SHA" ]; then
+              echo "PR #$pr moved on since this test run ($TESTED_SHA vs $head_sha); a newer run will handle it"
+              continue
+            fi
+
+            behind=$(gh api "repos/$repo/compare/main...$head_sha" --jq .behind_by)
+            if [ "$behind" -gt 0 ]; then
+              echo "PR #$pr ($branch) is $behind commit(s) behind main -- rebasing so pr-pull can fast-forward it"
+              node_id=$(gh pr view "$pr" --repo "$repo" --json id -q .id)
+              gh api graphql \
+                -f query='mutation($id: ID!) { updatePullRequestBranch(input: {pullRequestId: $id, updateMethod: REBASE}) { pullRequest { number } } }' \
+                -f id="$node_id"
+              continue
+            fi
+
+            echo "Labeling PR #$pr ($branch) for pr-pull"
+            gh pr edit "$pr" --repo "$repo" --add-label pr-pull
           done
