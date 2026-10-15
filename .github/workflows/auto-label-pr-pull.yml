@@ -74,6 +74,8 @@ jobs:
             if [ "$behind" -gt 0 ]; then
               echo "PR #$pr ($branch) is $behind commit(s) behind main -- rebasing so pr-pull can fast-forward it"
               node_id=$(gh pr view "$pr" --repo "$repo" --json id -q .id)
+              # $id below is a GraphQL variable, not a shell one, so single quotes are intended
+              # shellcheck disable=SC2016
               gh api graphql \
                 -f query='mutation($id: ID!) { updatePullRequestBranch(input: {pullRequestId: $id, updateMethod: REBASE}) { pullRequest { number } } }' \
                 -f id="$node_id"
