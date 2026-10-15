@@ -8,9 +8,9 @@ class Flipshot < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/flipshot-1.3.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "794c870832297d6f6ad6a7302bc37ef1abe3879c932c877ba5bac745f9191a89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9b4432373ecc52bf34067ee17b75e6ba6976b7bed8ff51531603f429e29b381"
+    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/flipshot-1.4.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f71ee0c86e22fcccbfada8454b0a8464e648819402659729ab638c4eed3fd44e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "152796163c3aa5b9398b94623e0378cb2bdc07732ef2f79cb165a8479597b4bf"
   end
 
   depends_on "python@3.12"
