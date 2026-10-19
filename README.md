@@ -17,7 +17,7 @@ brew "<formula>"
 
 - [romlm](https://github.com/ManeFunction/romlm) - Powerful ROMs manager for your retro-games library.
 - [flipshot](https://github.com/ManeFunction/flipshot) - Over USB native size screenshotter for Flipper Zero.
-- [kettle](https://github.com/ManeFunction/kettle-x2p-cli) - Local control of the Xiaomi Smart Kettle 2 Pro.
+- [kettle](https://github.com/ManeFunction/kettle-x2p-cli) - Local control of the Xiaomi Smart Kettle 2 Pro via CLI.
 
 ## Documentation
 
