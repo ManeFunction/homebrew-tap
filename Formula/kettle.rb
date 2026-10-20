@@ -3,8 +3,8 @@ class Kettle < Formula
 
   desc "Local control of the Xiaomi Smart Kettle 2 Pro"
   homepage "https://github.com/ManeFunction/kettle-x2p-cli"
-  url "https://files.pythonhosted.org/packages/ce/00/596532a9c0d8215fa9efed34d28e395193fd59018e7d56f1992bd771f7c9/kettle_x2p_cli-1.1.0.tar.gz"
-  sha256 "a1e8e9eae2feb87a63dc0524a279a43ed3f0a6c6f6e4aebd8af921500aaa4cf0"
+  url "https://files.pythonhosted.org/packages/58/bd/13731cc1db64aed4d29a55129b7b18b12084242a6395af960dc1e689086b/kettle_x2p_cli-1.2.0.tar.gz"
+  sha256 "2a1a0cb46c5d7e17f20bd667b66e9828c452eaa2964a8ae30ef569789f7be369"
   license "MIT"
 
   bottle do
