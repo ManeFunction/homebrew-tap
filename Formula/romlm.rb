@@ -7,6 +7,12 @@ class Romlm < Formula
   sha256 "4c2fcdad74a66f17ff49ffbee8d86b18989ea430e0faa063fc1948c12efad4ba"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/romlm-1.2.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bea7dd3532c0d4104785cebcf8f918c6b209e19e42c99f2b2c300b5170b12af9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b85a2306308276cfea84b30d1ae4aa25c527a6498504973ac0e1fbf4f7179b9"
+  end
+
   depends_on "python@3.12"
   depends_on "sevenzip"
 
