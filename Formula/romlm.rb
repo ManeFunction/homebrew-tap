@@ -3,16 +3,16 @@ class Romlm < Formula
 
   desc "ROMs library management tool"
   homepage "https://github.com/ManeFunction/romlm"
-  url "https://files.pythonhosted.org/packages/0b/70/2c0efde610f0881a80a3a200d043798e4a58f795cc396c240429cb7cc43f/romlm-1.1.0.tar.gz"
-  sha256 "80607b5442918067b3e17aa735bd1effc7887519dd6cf0915858e26ca8ddea3d"
+  url "https://files.pythonhosted.org/packages/33/d7/15ffd1adeecd4ed3b06c81f98aa18a06036afdcaa5079770e3d2c7c003ec/romlm-1.2.0.tar.gz"
+  sha256 "4c2fcdad74a66f17ff49ffbee8d86b18989ea430e0faa063fc1948c12efad4ba"
   license "MIT"
 
   depends_on "python@3.12"
   depends_on "sevenzip"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl"
-    sha256 "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "tqdm" do
