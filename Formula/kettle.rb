@@ -8,9 +8,9 @@ class Kettle < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/kettle-1.3.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a99021ba0cdd85c6df92241e3b551379eac7ab1cba4dd77dd9032a244f959186"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3b09d9ea38910fd6a3ea0c61526f1a18522e7ab48ad11d838dd36cf8a4216af"
+    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/kettle-1.3.1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31bb8a3e23a37731bdb5af910ed5d7e216722860fe058539c9df688848b7ed39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "424a85c9c73d0de6cfa7781192925ad73ec8143877583ab38d30627d2ed5cb07"
   end
 
   depends_on "python@3.12"
