@@ -10,7 +10,8 @@
 #
 # Fast-forward guard: brew pr-pull cherry-picks the PR's commit onto main. That
 # only keeps the commit's hash (so GitHub shows the PR as "Merged" instead of
-# "Closed") when main hasn't moved since the PR branch was created. If main
+# "Closed") when main hasn't moved since the PR branch was created, and when
+# pr-pull runs with --clean (see publish.yml) so it doesn't amend it. If main
 # has moved, this workflow rebases the PR branch onto main instead of labeling
 # it; the rebase push re-runs brew test-bot (new head SHA, new bottle
 # artifacts), and that run finds the PR up to date and labels it. A rebase

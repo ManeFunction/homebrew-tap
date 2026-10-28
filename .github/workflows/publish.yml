@@ -23,7 +23,9 @@ jobs:
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
           PULL_REQUEST: ${{ github.event.pull_request.number }}
-        run: brew pr-pull --debug --tap="$GITHUB_REPOSITORY" "$PULL_REQUEST"
+        # --clean skips the "Closes #N" / Signed-off-by amend, which would change the
+        # commit's hash and make GitHub show the PR as "Closed" instead of "Merged".
+        run: brew pr-pull --debug --clean --tap="$GITHUB_REPOSITORY" "$PULL_REQUEST"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@main
