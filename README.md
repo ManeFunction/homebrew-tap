@@ -18,6 +18,7 @@ brew "<formula>"
 - [romlm](https://github.com/ManeFunction/romlm) - Powerful ROMs manager for your retro-games library.
 - [flipshot](https://github.com/ManeFunction/flipshot) - Over USB native size screenshotter for Flipper Zero.
 - [kettle-x2p-cli](https://github.com/ManeFunction/kettle-x2p-cli) - Local control of the Xiaomi Smart Kettle 2 Pro via CLI.
+- [caelestia-hexwall](https://github.com/ManeFunction/caelestia-hexwall) - Dynamic wallpaper shader integrated right to your Caelestia shell.
 
 ## Documentation
 
