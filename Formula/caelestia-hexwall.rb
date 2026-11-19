@@ -1,8 +1,8 @@
 class CaelestiaHexwall < Formula
   desc "Animated hexagonal wallpaper for the Caelestia shell"
   homepage "https://github.com/ManeFunction/caelestia-hexwall"
-  url "https://github.com/ManeFunction/caelestia-hexwall/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "fcdbba0f95cb489b4b38a0be019d5866ad6eb84f3366bd1e6d5604b8e6b1dbf9"
+  url "https://github.com/ManeFunction/caelestia-hexwall/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "f8d8f17c0bc2fe577e3153563affa7bd58620287699308b7159941644c110982"
   license "MIT"
 
   bottle do
