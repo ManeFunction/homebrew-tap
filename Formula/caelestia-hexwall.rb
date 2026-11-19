@@ -6,10 +6,10 @@ class CaelestiaHexwall < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/caelestia-hexwall-0.9.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "05d5edfe57c62fadb499a1ac6d38fda6c8886c69f75efe1ca56e5fb78e72bbd7"
-    sha256 cellar: :any_skip_relocation, sequoia:       "00a3b26dc5459c24f2bd57772a2131079c25ec19aeab355da9b99815900f04a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dcb29d0698884b6bb439069f5c37021f26c3b142181993d1d5d00347006c18e"
+    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/caelestia-hexwall-1.0.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e99630ce1967a2be7d53d2192ab7bd4a75f74ce44d94e2f8e586eb4417cde801"
+    sha256 cellar: :any_skip_relocation, sequoia:       "90548ad343e1b59aac264aab1e32f700ef7c9ac6c11dffe39d42149bd8c2c1f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e85daefcd100c9ff15b3dc749ac7b6be68cce7e788ca11b15bd6c503007cd707"
   end
 
   def install
