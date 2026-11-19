@@ -2,6 +2,8 @@
 
 ## How do I install these formulae?
 
+Add this tap to trusted: `brew trust manefunction/tap`, then:
+
 `brew install manefunction/tap/<formula>`
 
 Or `brew tap manefunction/tap` and then `brew install <formula>`.
@@ -15,6 +17,7 @@ brew "<formula>"
 
 ## Available Formulae
 
+- [agent-plex](https://github.com/ManeFunction/agent-plex) - A CLI access to your Perplexity agent.
 - [romlm](https://github.com/ManeFunction/romlm) - Powerful ROMs manager for your retro-games library.
 - [flipshot](https://github.com/ManeFunction/flipshot) - Over USB native size screenshotter for Flipper Zero.
 - [kettle-x2p-cli](https://github.com/ManeFunction/kettle-x2p-cli) - Local control of the Xiaomi Smart Kettle 2 Pro via CLI.
