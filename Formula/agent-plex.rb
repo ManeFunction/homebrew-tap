@@ -7,6 +7,12 @@ class AgentPlex < Formula
   sha256 "dd7d3a9bd9eb2de4da970aed323a98b11d9dbb045a9e572ba53a461f163fc7e5"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/agent-plex-0.9.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b17c93b83fabdeb6bc3f54722712b3e834ad70079f32e37e0ef8950683805672"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee54a611934c9c2070f590a42c107dfe57aff58ed1afcbfca3b5d9a14d4a2152"
+  end
+
   depends_on "pydantic"
   depends_on "python@3.14"
 
