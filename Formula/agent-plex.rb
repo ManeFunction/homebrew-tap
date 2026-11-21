@@ -8,9 +8,9 @@ class AgentPlex < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/agent-plex-0.9.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b17c93b83fabdeb6bc3f54722712b3e834ad70079f32e37e0ef8950683805672"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee54a611934c9c2070f590a42c107dfe57aff58ed1afcbfca3b5d9a14d4a2152"
+    root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/agent-plex-1.0.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6978312b2ee8f64cb5858bb25d337623b43457f19a2c0fc277ef4a3bdb5bab53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d90fb577324eeb20fe9887319c339f8612ad11f1f96bcd57d1e0624cc756102"
   end
 
   depends_on "pydantic"
