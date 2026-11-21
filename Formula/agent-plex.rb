@@ -3,8 +3,8 @@ class AgentPlex < Formula
 
   desc "Chat with Perplexity from your terminal"
   homepage "https://github.com/ManeFunction/agent-plex"
-  url "https://files.pythonhosted.org/packages/f8/fb/f53b4ece744e411f2c9a153d31526491aee198ec5278c24566d1aedc0b41/agent_plex-0.9.0.tar.gz"
-  sha256 "dd7d3a9bd9eb2de4da970aed323a98b11d9dbb045a9e572ba53a461f163fc7e5"
+  url "https://files.pythonhosted.org/packages/d8/29/b181e53defd211b0fe91f2022566bbaa12e8b4e691a30d496d18906be1b9/agent_plex-1.0.0.tar.gz"
+  sha256 "7eae5a9a791a7b21f2f7eb4dbcb1d54fb657662f87be64c5a228a16afec86c11"
   license "MIT"
 
   bottle do
