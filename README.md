@@ -17,6 +17,7 @@ brew "<formula>"
 
 ## Available Formulae
 
+- [lazyunity](https://github.com/ManeFuncion/lazyunity) - A CLI for Unity projects and Editors, built on top of the official Unity CLI and inspired by lazygit.
 - [agent-plex](https://github.com/ManeFunction/agent-plex) - A CLI access to your Perplexity agent.
 - [romlm](https://github.com/ManeFunction/romlm) - Powerful ROMs manager for your retro-games library.
 - [flipshot](https://github.com/ManeFunction/flipshot) - Over USB native size screenshotter for Flipper Zero.
