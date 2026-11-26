@@ -7,10 +7,10 @@ class CaelestiaHexwall < Formula
 
   bottle do
     root_url "https://github.com/ManeFunction/homebrew-tap/releases/download/caelestia-hexwall-1.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb43cb4ed97a3f6767d07d865122e19c92c1c86108952a29adacd653f182fdf2"
-    sha256 cellar: :any_skip_relocation, sequoia:       "5ebdb36ddc929f6ae32506a32dff4f1297ebdff11cd1293da2f38c80c1aee9df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77d676af0c465b47555c694d3d6a6b872818acc7c1da84ba8df3383a32ca833f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "77d676af0c465b47555c694d3d6a6b872818acc7c1da84ba8df3383a32ca833f"
   end
+
+  depends_on :linux
 
   def install
     bin.install "bin/hexwall"
